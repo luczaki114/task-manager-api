@@ -1,4 +1,4 @@
-### **Task Manager API**  
+# **Task Manager API**  
 A simple CRUD API built with **Node.js & Express** for managing tasks.
 
 ---
@@ -12,7 +12,7 @@ npm install
 
 ### **2️⃣ Run the Server**  
 ```sh
-node run dev
+npm run dev
 ```
 The server will start at:  
 📍 `http://localhost:3000/`
@@ -21,12 +21,12 @@ The server will start at:
 
 ## **🛠 API Endpoints**
 
-### **📌 Create a Task**  
+### **Create a Task**  
 **POST** `/tasks`  
-```json
-{
-  "title": "Learn Express"
-}
+```bash
+curl -X POST http://localhost:3000/tasks \
+  -H "Content-Type: application/json" \
+  -d '{"title": "Learn Next.js"}'
 ```
 ✅ **Response:**  
 ```json
@@ -39,8 +39,11 @@ The server will start at:
 
 ---
 
-### **📌 Get All Tasks**  
+### **Get All Tasks**  
 **GET** `/tasks`  
+```bash
+curl http://localhost:3000/tasks
+```
 ✅ **Response:**  
 ```json
 [
@@ -52,10 +55,11 @@ The server will start at:
 ]
 ```
 
----
-
-### **📌 Get a Single Task**  
+### **Get a Single Task**  
 **GET** `/tasks/:id`  
+```bash
+curl http://localhost:3000/tasks/1
+```
 ✅ **Response:**  
 ```json
 {
@@ -65,14 +69,12 @@ The server will start at:
 }
 ```
 
----
-
-### **📌 Update a Task**  
+### **Update a Task**  
 **PUT** `/tasks/:id`  
-```json
-{
-  "completed": true
-}
+```bash
+curl -X PUT http://localhost:3000/tasks/1 \
+  -H "Content-Type: application/json" \
+  -d '{"completed": true}'
 ```
 ✅ **Response:**  
 ```json
@@ -83,38 +85,12 @@ The server will start at:
 }
 ```
 
----
-
-### **📌 Delete a Task**  
+### **Delete a Task**  
 **DELETE** `/tasks/:id`  
+```bash
+curl -X DELETE http://localhost:3000/tasks/1
+```
 ✅ **Response:** `204 No Content` (Task deleted successfully)
-
----
-
-## **🧪 Testing with PowerShell**
-Run these commands in **PowerShell** to test the API:
-
-🔹 **Create a Task**
-```powershell
-Invoke-RestMethod -Uri "http://localhost:3000/tasks" -Method POST -Headers @{"Content-Type"="application/json"} -Body '{"title": "Learn Express"}'
-```
-
-🔹 **Get All Tasks**
-```powershell
-Invoke-RestMethod -Uri "http://localhost:3000/tasks" -Method GET
-```
-
-🔹 **Update a Task**
-```powershell
-Invoke-RestMethod -Uri "http://localhost:3000/tasks/1" -Method PUT -Headers @{"Content-Type"="application/json"} -Body '{"completed": true}'
-```
-
-🔹 **Delete a Task**
-```powershell
-Invoke-RestMethod -Uri "http://localhost:3000/tasks/1" -Method DELETE
-```
-
----
 
 ## **📌 Next Steps**
 ✅ Add a database (**MongoDB or PostgreSQL**)  
