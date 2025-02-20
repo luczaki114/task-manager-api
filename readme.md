@@ -1,7 +1,3 @@
-Here's a **simple README.md** file for your Task Manager API. You can copy and paste this into your repository:  
-
----
-
 ### **Task Manager API**  
 A simple CRUD API built with **Node.js & Express** for managing tasks.
 
